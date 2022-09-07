@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTaskNeoStack", "TestTaskNeoStack\TestTaskNeoStack.csproj", "{C793DF62-9EA3-4B4A-82F3-299C6C2ADF0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\..\..\Downloads\TestTask(Dmitriykul)\Common\Common.csproj", "{695994E1-2F7B-49B5-9E3D-4E2A41E41C9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingToNumeric", "BindingToNumber\BindingToNumeric.csproj", "{3A9E1113-2453-4F89-AFC2-F730690E820C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingToNumeric", "..\..\..\Downloads\TestTask(Dmitriykul)\BindingToNumber\BindingToNumeric.csproj", "{3A9E1113-2453-4F89-AFC2-F730690E820C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{695994E1-2F7B-49B5-9E3D-4E2A41E41C9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{C793DF62-9EA3-4B4A-82F3-299C6C2ADF0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C793DF62-9EA3-4B4A-82F3-299C6C2ADF0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C793DF62-9EA3-4B4A-82F3-299C6C2ADF0B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{695994E1-2F7B-49B5-9E3D-4E2A41E41C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{695994E1-2F7B-49B5-9E3D-4E2A41E41C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{695994E1-2F7B-49B5-9E3D-4E2A41E41C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{695994E1-2F7B-49B5-9E3D-4E2A41E41C9A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A9E1113-2453-4F89-AFC2-F730690E820C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3A9E1113-2453-4F89-AFC2-F730690E820C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A9E1113-2453-4F89-AFC2-F730690E820C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A9E1113-2453-4F89-AFC2-F730690E820C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{695994E1-2F7B-49B5-9E3D-4E2A41E41C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{695994E1-2F7B-49B5-9E3D-4E2A41E41C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{695994E1-2F7B-49B5-9E3D-4E2A41E41C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{695994E1-2F7B-49B5-9E3D-4E2A41E41C9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
