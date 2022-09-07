@@ -7,7 +7,8 @@ using TestTaskNeoStack.Models;
 
 namespace TestTaskNeoStack.ViewModels
 {
-    public class MainWindowsView : BaseInpc
+
+    public class MainWindowViewModel : BaseInpc
     {
         /// <summary>Список Функций.</summary>
         public ObservableCollection<PowerFunction> Functions { get; }
@@ -17,7 +18,7 @@ namespace TestTaskNeoStack.ViewModels
         /// <summary>Выбранная Функция.</summary>
         public PowerFunction SelectedFunction { get => _selectedFunction; set => Set(ref _selectedFunction, value); }
 
-        public MainWindowsView(ObservableCollection<PowerFunction> functions)
+        public MainWindowViewModel()
         {
             Functions.Add(new PowerFunction("Линейная",
                 new List<double> { 1, 2, 3, 4, 5 },
@@ -42,7 +43,6 @@ namespace TestTaskNeoStack.ViewModels
 
             CalculatedFunctions.CollectionChanged += OnRowsChanged;
             IsNewFunction = true;
-            Functions = functions;
         }
 
 
