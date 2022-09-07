@@ -45,24 +45,7 @@
                      ItemsSource="{Binding Functions}"
                      SelectedItem="{Binding SelectedFunction}"
                      DisplayMemberPath="FunctionName"/>
-            </Grid>
-            <Button Padding="15 5"
-                    Margin="10"
-                    HorizontalAlignment="Center"
-                    Grid.Row="1">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Content" Value="Задать функцию"/>
-                        <Setter Property="Command" Value="{Binding InputXyCommand}"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsNewFunction}" Value="False">
-                                <Setter Property="Content" Value="Изменить функцию"/>
-                                <Setter Property="Command" Value="{Binding InputFunctionCommand}"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
+            </Grid> 
         </Grid>
 
         <StackPanel Grid.Column="3">
@@ -71,10 +54,9 @@
                 <Run Text="{Binding NameSelectedFunction, Mode=OneWay}"/>
             </TextBlock>
             <DataGrid x:Name="DataGridResFunction"  
-                      IsEnabled="{Binding IsNewFunction, Converter={cnvs:BooleanNotConverter}}"
                       Margin="10" 
                       AutoGenerateColumns="False" 
-                      ItemsSource="{Binding Path=CalculatedFunctions}"
+                      ItemsSource="{Binding Path=SelectedFunction.CalculatedFunctions}"
                       CanUserAddRows="True"
                       MinHeight="100">
                 <DataGrid.Columns>

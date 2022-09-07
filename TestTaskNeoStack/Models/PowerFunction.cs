@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TestTaskNeoStack.ViewModels;
+using System.Collections.Specialized;
+using System.Collections.ObjectModel;
 
 namespace TestTaskNeoStack.Models
 {
@@ -26,12 +29,28 @@ namespace TestTaskNeoStack.Models
         /// <summary>Создаёт экземпляр <see cref="PowerFunction"/>.</summary>
         /// <param name="name">Имя Функции.</param>
         /// <param name="function">Делегат Функции.</param>
-        public PowerFunction(string name, IEnumerable<double> coefficients, Func<double, double, double, double, double, double> function)
+        /// <summary>Строки вычисленных значений.</summary>
+        public ObservableCollection<PowerFunctionRow> CalculatedFunctions { get; }
+            = new ObservableCollection<PowerFunctionRow>();
+
+        private void OnRowsChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            // Добавление выбранной Функции в новую строку.
+            if (e.Action == NotifyCollectionChangedAction.Add)
+                foreach (PowerFunctionRow row in e.NewItems)
+                {
+                    row.SetFunction(this);
+                }
+        }
+
+        public PowerFunction(string name, IEnumerable<double> arguments, Func<double, double, double, double, double, double> function)
         {
             FunctionName = name;
-            Coefficients = coefficients.ToList().AsReadOnly();
+            Coefficients = arguments.ToList().AsReadOnly();
             this.function = function ?? throw new ArgumentNullException(nameof(function));
             Function = Calculate;
+
+            CalculatedFunctions.CollectionChanged += OnRowsChanged;
         }
         private readonly Func<double, double, double, double, double, double> function;
         private double Calculate(double x, double y)

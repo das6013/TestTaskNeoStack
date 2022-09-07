@@ -55,7 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModels\MainWindowsView.cs" />
     <Compile Include="ViewModels\MainWindowViewModel .cs" />
     <Compile Include="ViewModels\PowerFunctionRow.cs" />
     <Page Include="MainWindow.xaml">
