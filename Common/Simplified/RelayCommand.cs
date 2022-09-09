@@ -12,7 +12,6 @@ namespace Simplified
 
     #region Класс команд - RelayCommand
     /// <summary>Класс реализующий <see cref="ICommand"/>.<br/>
-    /// Реализация взята из <see href="https://www.cyberforum.ru/wpf-silverlight/thread2390714-page4.html#post13535649"/>
     /// и дополнена конструктором для методов без параметра.</summary>
     public class RelayCommand : ICommand
     {

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Input;
-namespace Simplified
+﻿namespace Simplified
 {
     #region Делегаты для методов WPF команд
     public delegate void ExecuteHandler<T>(T parameter);

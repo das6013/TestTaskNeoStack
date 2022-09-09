@@ -40,50 +40,6 @@ namespace TestTaskNeoStack.ViewModels
                 new List<double> { 10000, 20000, 30000, 40000, 50000 },
                 (a, b, c, x, y) => a * Math.Pow(x, 5) + b * Math.Pow(y, 4) + c)
             { A = 0, B = 0, C = 10000 });
-
-            CalculatedFunctions.CollectionChanged += OnRowsChanged;
-            IsNewFunction = true;
         }
-
-
-        private void OnRowsChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            // Добавление выбранной Функции в новую строку.
-            if (e.Action == NotifyCollectionChangedAction.Add)
-                foreach (PowerFunctionRow row in e.NewItems)
-                {
-                    row.SetFunction(SelectedFunction);
-                }
-        }
-
-        /// <summary>Строки вычисленных значений.</summary>
-        public ObservableCollection<PowerFunctionRow> CalculatedFunctions { get; }
-            = new ObservableCollection<PowerFunctionRow>();
-
-        private bool _isNewFunction;
-        /// <summary>Режим изменения Функции.</summary>
-        public bool IsNewFunction { get => _isNewFunction; set => Set(ref _isNewFunction, value); }
-
-        private RelayCommand _inputFunctionCommand;
-        /// <summary>Команда перехода в режим изменения Функции.</summary>
-        public RelayCommand InputFunctionCommand => _inputFunctionCommand
-         ?? (_inputFunctionCommand = new RelayCommand
-        (
-             () => { IsNewFunction = true; CalculatedFunctions.Clear(); NameSelectedFunction = string.Empty; },
-             () => !IsNewFunction
-        ));
-
-        private RelayCommand _inputXyCommand;
-        /// <summary>Команда перехода в режим ввода X и Y.</summary>
-        public RelayCommand InputXyCommand => _inputXyCommand
-         ?? (_inputXyCommand = new RelayCommand
-        (
-             () => { IsNewFunction = false; CalculatedFunctions.Clear(); NameSelectedFunction = SelectedFunction?.FunctionName; },
-             () => IsNewFunction
-        ));
-
-        private string _nameSelectedFunction;
-        /// <summary>Имя Функции для которой вводятся X и Y.</summary>
-        public string NameSelectedFunction { get => _nameSelectedFunction; private set => Set(ref _nameSelectedFunction, value); }
     }
 }

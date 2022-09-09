@@ -237,6 +237,5 @@ namespace BindingStringToNumeric
                 return NumberStyles.Float | NumberStyles.AllowThousands;
             return NumberStyles.Integer;
         }
-
     }
 }
