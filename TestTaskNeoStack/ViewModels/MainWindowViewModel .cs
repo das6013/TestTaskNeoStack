@@ -1,13 +1,11 @@
-﻿using Simplified;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
+using Simplified;
 using TestTaskNeoStack.Models;
 
 namespace TestTaskNeoStack.ViewModels
 {
-
     public class MainWindowViewModel : BaseInpc
     {
         /// <summary>Список Функций.</summary>

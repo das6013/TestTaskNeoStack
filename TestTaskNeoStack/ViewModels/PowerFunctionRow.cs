@@ -1,11 +1,11 @@
-﻿using Simplified;
-using System;
+﻿using System;
+using Simplified;
 using TestTaskNeoStack.Models;
 
 namespace TestTaskNeoStack.ViewModels
 {
     /// <summary>Тип данных для одной строки таблицы.</summary>
-    public class PowerFunctionRow :BaseInpc
+    public class PowerFunctionRow : BaseInpc
     {
         private double _x;
         private double _y;

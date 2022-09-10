@@ -1,10 +1,7 @@
-﻿using Xunit;
-using TestTaskNeoStack.ViewModels;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TestTaskNeoStack.ViewModels;
+using Xunit;
 
 namespace TestTaskNeoStack.Models.Tests
 {
@@ -16,7 +13,7 @@ namespace TestTaskNeoStack.Models.Tests
             PowerFunction powerFunctionTest = new PowerFunction("Линейная",
                 new List<double> { 1, 2, 3, 4, 5 },
                 (a, b, c, x, y) => a * x + b * 1 + c);
-            Assert.True(powerFunctionTest!=null, "This test needs an implementation");
+            Assert.True(powerFunctionTest != null, "This test needs an implementation");
         }
 
         [Fact()]
@@ -106,7 +103,5 @@ namespace TestTaskNeoStack.Models.Tests
             powerFunctionRowTest.SetFunction(powerFunctionTest);
             Assert.True(powerFunctionRowTest.F == 14763041616, "This test needs an implementation");
         }
-
-
     }
 }

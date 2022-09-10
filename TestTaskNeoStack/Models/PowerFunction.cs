@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using TestTaskNeoStack.ViewModels;
-using System.Collections.Specialized;
-using System.Collections.ObjectModel;
 
 namespace TestTaskNeoStack.Models
 {
@@ -55,7 +55,9 @@ namespace TestTaskNeoStack.Models
 
             CalculatedFunctions.CollectionChanged += OnRowsChanged;
         }
+
         private readonly Func<double, double, double, double, double, double> function;
+
         private double Calculate(double x, double y)
             => function(A, B, C, x, y);
     }
