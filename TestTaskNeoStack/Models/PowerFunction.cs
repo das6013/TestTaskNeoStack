@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using TestTaskNeoStack.ViewModels;
 using System.Collections.Specialized;
 using System.Collections.ObjectModel;
