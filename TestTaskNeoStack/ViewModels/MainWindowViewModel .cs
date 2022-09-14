@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using TestTaskNeoStack.Models;
 
 namespace TestTaskNeoStack.ViewModels
@@ -16,7 +15,14 @@ namespace TestTaskNeoStack.ViewModels
 
         private PowerFunction _selectedFunction;
         /// <summary>Выбранная Функция.</summary>
-        public PowerFunction SelectedFunction { get => _selectedFunction; set => Set(ref _selectedFunction, value); }
+        public PowerFunction SelectedFunction
+        {
+            get { return _selectedFunction; }
+            set
+            {
+                Set(ref _selectedFunction, value);
+            }
+        }
 
         public MainWindowViewModel()
         {
@@ -42,4 +48,5 @@ namespace TestTaskNeoStack.ViewModels
             { A = 0, B = 0, C = 10000 });
         }
     }
+
 }

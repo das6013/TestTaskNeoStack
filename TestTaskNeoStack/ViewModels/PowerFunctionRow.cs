@@ -12,13 +12,25 @@ namespace TestTaskNeoStack.ViewModels
         private double? _f;
 
         /// <summary>Значение X.</summary>
-        public double X { get => _x; set => Set(ref _x, value); }
+        public double X 
+        {
+            get { return _x; }
+            set { Set(ref _x, value); }
+        }
 
         /// <summary>Значение Y.</summary>
-        public double Y { get => _y; set => Set(ref _y, value); }
+        public double Y 
+        { 
+            get { return _y;}
+            set { Set(ref _y, value);}
+        }
 
         /// <summary>Значение Функции для текущих значений <see cref="X"/> и <see cref="Y"/>.</summary>
-        public double? F { get => _f; private set => Set(ref _f, value); }
+        public double? F 
+        { 
+            get { return _f; }
+            private set { Set(ref _f, value); }
+        }
 
 
         private PowerFunction function;
@@ -30,6 +42,9 @@ namespace TestTaskNeoStack.ViewModels
             this.function = function ?? throw new ArgumentNullException(nameof(function));
             F = function?.Function(X, Y);
         }
+
+
+     
 
         protected override void OnPropertyChanged(string propertyName, object oldValue, object newValue)
         {
