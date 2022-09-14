@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:TestTaskNeoStack.ViewModels"
         mc:Ignorable="d"
-        Title="Pow function" Height="250" Width="800">
+        Title="Pow function" Height="250" Width="800" MinWidth="800" MinHeight="250">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -56,6 +56,7 @@
                       ItemsSource="{Binding SelectedFunction.CalculatedFunctions}"
                       CanUserAddRows="True"
                       MinHeight="100"
+                      MaxHeight="145"
                       ScrollViewer.CanContentScroll="True"
                       ScrollViewer.VerticalScrollBarVisibility="Auto"
                       ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False">
@@ -65,7 +66,7 @@
                     <DataGridTextColumn Header="Y" Width="*" Binding="{Binding Y, UpdateSourceTrigger=PropertyChanged}"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <ToolBar Height="25">
+            <ToolBar>
                 <Button Height="25" Width="150" Content="Add Row" Command="{Binding SelectedFunction.AddRow}"></Button>
                 <Button Height="25" Width="150" Content="Delete Row" Command="{Binding SelectedFunction.RemoveRow}"></Button>
             </ToolBar>

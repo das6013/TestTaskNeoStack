@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using TestTaskNeoStack.ViewModels;
 using System.Collections.Specialized;
 using System.Collections.ObjectModel;
@@ -28,8 +27,8 @@ namespace TestTaskNeoStack.Models
             set { Set(ref _a, value); }
         }
 
-/// <summary>Коэффициент B.</summary>
-public double B
+        /// <summary>Коэффициент B.</summary>
+        public double B
         {
             get { return _b; }
             set { Set(ref _b, value); }
@@ -84,7 +83,6 @@ public double B
             return function(A, B, C, x, y);
         }
 
-        //перенести комагды в view
 
         private RelayCommand _removeRow;
         public RelayCommand RemoveRow =>
