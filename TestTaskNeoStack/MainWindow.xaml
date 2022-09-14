@@ -4,20 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:TestTaskNeoStack.ViewModels"
-        xmlns:local="clr-namespace:TestTaskNeoStack"
-        xmlns:cnvs="clr-namespace:WpfMvvm.Converters;assembly=Common"
-        xmlns:bnd="clr-namespace:BindingStringToNumeric;assembly=BindingToNumeric"
         mc:Ignorable="d"
-        Title="Test task" Height="250" Width="800">
-	<Window.DataContext>
+        Title="Pow function" Height="250" Width="800" MinWidth="800" MinHeight="250">
+    <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="9*"/>
-            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="66*"/>
+            <ColumnDefinition Width="375*"/>
+            <ColumnDefinition Width="346*"/>
         </Grid.ColumnDefinitions>
-        <Grid Margin="0,10,0,-10">
+        <Grid Margin="0,10,0,-10" Grid.ColumnSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -29,44 +28,49 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="1">
                     <TextBlock Text="a" Margin="15,13,0,0"/>
-                    <TextBox Margin="10,5" 
-                         Text="{bnd:BindToNumeric SelectedFunction.A}" />
+                    <TextBox Margin="10,5"
+                             Text="{Binding Path=SelectedFunction.A, UpdateSourceTrigger=PropertyChanged}"
+                             PreviewTextInput="TextBox_PreviewTextInput"/>
                     <TextBlock Text="b" Margin="15,13,0,0"/>
                     <TextBox Margin="10 5" 
-                         Text="{bnd:BindToNumeric Path=SelectedFunction.B}" />
+                             Text="{Binding Path=SelectedFunction.B, UpdateSourceTrigger=PropertyChanged}"
+                             PreviewTextInput="TextBox_PreviewTextInput"/>
                     <TextBlock Text="c" Margin="15,13,0,0"/>
                     <ComboBox Margin="10 5" 
                           SelectedIndex="0"
                           ItemsSource="{Binding Path=SelectedFunction.Coefficients}"
-                          SelectedItem="{Binding Path=SelectedFunction.C}"/>
+                          SelectedItem="{Binding Path=SelectedFunction.C, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
                 <ListBox Margin="10"
                      ItemsSource="{Binding Functions}"
                      SelectedItem="{Binding SelectedFunction}"
                      DisplayMemberPath="FunctionName"/>
-            </Grid> 
+            </Grid>
         </Grid>
 
         <StackPanel Grid.Column="3">
-            <TextBlock>
-                <Run Text="Выбрана функция:"/>
-                <Run Text="{Binding SelectedFunction.FunctionName, Mode=OneWay}"/>
-            </TextBlock>
+            <TextBlock><Run Text="Выбрана функция:"/><Run Text=" "/><Run Text="{Binding SelectedFunction.FunctionName, Mode=OneWay}"/></TextBlock>
             <DataGrid x:Name="DataGridResFunction"  
                       Margin="10" 
-                      AutoGenerateColumns="False" 
                       ItemsSource="{Binding SelectedFunction.CalculatedFunctions}"
                       CanUserAddRows="True"
-                      MinHeight="100">
+                      MinHeight="100"
+                      MaxHeight="145"
+                      ScrollViewer.CanContentScroll="True"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="F(X, Y)" Width="60" Binding="{Binding F, Mode=OneWay}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="X" Width="60" Binding="{Binding X, UpdateSourceTrigger=PropertyChanged}" />
                     <DataGridTextColumn Header="Y" Width="*" Binding="{Binding Y, UpdateSourceTrigger=PropertyChanged}"/>
                 </DataGrid.Columns>
             </DataGrid>
+            <ToolBar>
+                <Button Height="25" Width="150" Content="Add Row" Command="{Binding SelectedFunction.AddRow}"></Button>
+                <Button Height="25" Width="150" Content="Delete Row" Command="{Binding SelectedFunction.RemoveRow}"></Button>
+            </ToolBar>
+            
         </StackPanel>
     </Grid>
-
-
 </Window>

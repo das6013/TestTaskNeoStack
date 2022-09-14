@@ -26,104 +26,7 @@ namespace BindingStringToNumeric
     /// <returns> Значение <see langword="true"/>, если параметр s успешно преобразован; в противном случае — значение <see langword="false"/>.</returns>
     public delegate bool TryParseNumberHandler(string s, NumberStyles style, IFormatProvider provider, out object result);
     public static class NumericTryParse
-
     {
-        ///<inheritdoc cref="sbyte.TryParse(string, NumberStyles, IFormatProvider, out sbyte)"/>
-        public static bool TryParseSbyte(string s, NumberStyles style, IFormatProvider provider, out object result)
-        {
-            if (sbyte.TryParse(s, style, provider, out sbyte number))
-            {
-                result = number;
-                return true;
-            }
-            result = null;
-            return false;
-        }
-
-        ///<inheritdoc cref="byte.TryParse(string, NumberStyles, IFormatProvider, out byte)"/>
-        public static bool TryParseByte(string s, NumberStyles style, IFormatProvider provider, out object result)
-        {
-            if (byte.TryParse(s, style, provider, out byte number))
-            {
-                result = number;
-                return true;
-            }
-            result = null;
-            return false;
-        }
-
-        ///<inheritdoc cref="short.TryParse(string, NumberStyles, IFormatProvider, out short)"/>
-        public static bool TryParseShort(string s, NumberStyles style, IFormatProvider provider, out object result)
-        {
-            if (short.TryParse(s, style, provider, out short number))
-            {
-                result = number;
-                return true;
-            }
-            result = null;
-            return false;
-        }
-
-        ///<inheritdoc cref="ushort.TryParse(string, NumberStyles, IFormatProvider, out ushort)"/>
-        public static bool TryParseUshort(string s, NumberStyles style, IFormatProvider provider, out object result)
-        {
-            if (ushort.TryParse(s, style, provider, out ushort number))
-            {
-                result = number;
-                return true;
-            }
-            result = null;
-            return false;
-        }
-
-        ///<inheritdoc cref="int.TryParse(string, NumberStyles, IFormatProvider, out int)"/>
-        public static bool TryParseInt(string s, NumberStyles style, IFormatProvider provider, out object result)
-        {
-            if (int.TryParse(s, style, provider, out int number))
-            {
-                result = number;
-                return true;
-            }
-            result = null;
-            return false;
-        }
-
-        ///<inheritdoc cref="uint.TryParse(string, NumberStyles, IFormatProvider, out uint)"/>
-        public static bool TryParseUint(string s, NumberStyles style, IFormatProvider provider, out object result)
-        {
-            if (uint.TryParse(s, style, provider, out uint number))
-            {
-                result = number;
-                return true;
-            }
-            result = null;
-            return false;
-        }
-
-        ///<inheritdoc cref="long.TryParse(string, NumberStyles, IFormatProvider, out long)"/>
-        public static bool TryParseLong(string s, NumberStyles style, IFormatProvider provider, out object result)
-        {
-            if (long.TryParse(s, style, provider, out long number))
-            {
-                result = number;
-                return true;
-            }
-            result = null;
-            return false;
-        }
-
-        ///<inheritdoc cref="ulong.TryParse(string, NumberStyles, IFormatProvider, out ulong)"/>
-        public static bool TryParseUlong(string s, NumberStyles style, IFormatProvider provider, out object result)
-        {
-            if (ulong.TryParse(s, style, provider, out ulong number))
-            {
-                result = number;
-                return true;
-            }
-            result = null;
-            return false;
-        }
-
         ///<inheritdoc cref="double.TryParse(string, NumberStyles, IFormatProvider, out double)"/>
         public static bool TryParseDouble(string s, NumberStyles style, IFormatProvider provider, out object result)
         {
@@ -136,45 +39,11 @@ namespace BindingStringToNumeric
             return false;
         }
 
-        ///<inheritdoc cref="float.TryParse(string, NumberStyles, IFormatProvider, out float)"/>
-        public static bool TryParseFloat(string s, NumberStyles style, IFormatProvider provider, out object result)
-        {
-            if (float.TryParse(s, style, provider, out float number))
-            {
-                result = number;
-                return true;
-            }
-            result = null;
-            return false;
-        }
-
-        ///<inheritdoc cref="decimal.TryParse(string, NumberStyles, IFormatProvider, out decimal)"/>
-        public static bool TryParseDecimal(string s, NumberStyles style, IFormatProvider provider, out object result)
-        {
-            if (decimal.TryParse(s, style, provider, out decimal number))
-            {
-                result = number;
-                return true;
-            }
-            result = null;
-            return false;
-        }
-
         /// <summary>Словарь числовых типов и парсеров для них.</summary>
         public static ReadOnlyDictionary<Type, TryParseNumberHandler> TryParses { get; }
             = new ReadOnlyDictionary<Type, TryParseNumberHandler>(new Dictionary<Type, TryParseNumberHandler>()
             {
-                { typeof(sbyte), TryParseSbyte },
-                { typeof(byte), TryParseByte },
-                { typeof(short), TryParseShort },
-                { typeof(ushort), TryParseUshort },
-                { typeof(int), TryParseInt },
-                { typeof(uint), TryParseUint },
-                { typeof(long), TryParseLong },
-                { typeof(ulong), TryParseUlong },
                 { typeof(double), TryParseDouble },
-                { typeof(float), TryParseFloat },
-                { typeof(decimal), TryParseDecimal }
             });
 
         /// <summary>Получение парсера по типу.</summary>

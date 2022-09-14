@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.Linq;
 using TestTaskNeoStack.ViewModels;
+using System.Collections.Specialized;
+using System.Collections.ObjectModel;
+using Simplified;
 
 namespace TestTaskNeoStack.Models
 {
-    public class PowerFunction
+    public class PowerFunction : BaseInpc
     {
         private string _nameSelectedFunction;
+        private double _a;
+        private double _b;
+        private double _c;
         /// <summary>Названия Функции.</summary>
         public string FunctionName { get => _nameSelectedFunction; private set => _nameSelectedFunction = value; }
 
@@ -17,13 +21,25 @@ namespace TestTaskNeoStack.Models
         public Func<double, double, double> Function { get; }
 
         /// <summary>Коэффициент A.</summary>
-        public double A { get; set; }
+        public double A 
+        {
+            get { return _a; }
+            set { Set(ref _a, value); }
+        }
 
         /// <summary>Коэффициент B.</summary>
-        public double B { get; set; }
+        public double B
+        {
+            get { return _b; }
+            set { Set(ref _b, value); }
+        }
 
         /// <summary>Коэффициент C.</summary>
-        public double C { get; set; }
+        public double C
+        {
+            get { return _c; }
+            set { Set(ref _c, value); }
+        }
 
         /// <summary>Список аргументов.</summary>
         public IReadOnlyList<double> Coefficients { get; }
@@ -36,10 +52,16 @@ namespace TestTaskNeoStack.Models
         {
             // Добавление выбранной Функции в новую строку.
             if (e.Action == NotifyCollectionChangedAction.Add)
+            {
                 foreach (PowerFunctionRow row in e.NewItems)
                 {
                     row.SetFunction(this);
-                }
+                }             
+            }
+            foreach (PowerFunctionRow row in CalculatedFunctions)
+            {
+                row.SetFunction(this);
+            }
         }
 
         /// <summary>Создаёт экземпляр <see cref="PowerFunction"/>.</summary>
@@ -55,10 +77,37 @@ namespace TestTaskNeoStack.Models
 
             CalculatedFunctions.CollectionChanged += OnRowsChanged;
         }
-
         private readonly Func<double, double, double, double, double, double> function;
-
         private double Calculate(double x, double y)
-            => function(A, B, C, x, y);
+        {
+            return function(A, B, C, x, y);
+        }
+
+
+        private RelayCommand _removeRow;
+        public RelayCommand RemoveRow =>
+            _removeRow ?? (_removeRow = new RelayCommand
+        (
+             () => { if (CalculatedFunctions.Count > 0)
+                     CalculatedFunctions.RemoveAt(CalculatedFunctions.Count - 1); }
+        ));
+
+        private RelayCommand _addRow;
+        public RelayCommand AddRow =>
+            _addRow ?? (_addRow = new RelayCommand
+        (
+             () => { CalculatedFunctions.Add(new PowerFunctionRow()); }
+        ));
+
+        protected override void OnPropertyChanged(string propertyName, object oldValue, object newValue)
+        {
+            base.OnPropertyChanged(propertyName, oldValue, newValue);
+
+            if (propertyName == nameof(A) || propertyName == nameof(B) || propertyName == nameof(C))
+                foreach (PowerFunctionRow row in CalculatedFunctions)
+                {
+                    row.SetFunction(this);
+                }
+        }
     }
 }

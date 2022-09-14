@@ -19,10 +19,9 @@ namespace BindingStringToNumeric
                   .GetService(typeof(IProvideValueTarget));
 
             //Получим TextBox, вызвавший привязку
-            TextBox targetTextBox = providerValuetarget.TargetObject as TextBox;
             DependencyProperty targetProperty = providerValuetarget.TargetProperty as DependencyProperty;
 
-            if (targetTextBox == null || targetProperty != TextBox.TextProperty)
+            if (!(providerValuetarget.TargetObject is TextBox targetTextBox) || targetProperty != TextBox.TextProperty)
                 throw new Exception("Можно использовать только в привязке свойства TextBox.Text");
 
             // Инициализация присоединённого свойства

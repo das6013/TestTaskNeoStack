@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Simplified;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Simplified;
 using TestTaskNeoStack.Models;
 
 namespace TestTaskNeoStack.ViewModels
 {
+
     public class MainWindowViewModel : BaseInpc
     {
         /// <summary>Список Функций.</summary>
@@ -14,7 +15,14 @@ namespace TestTaskNeoStack.ViewModels
 
         private PowerFunction _selectedFunction;
         /// <summary>Выбранная Функция.</summary>
-        public PowerFunction SelectedFunction { get => _selectedFunction; set => Set(ref _selectedFunction, value); }
+        public PowerFunction SelectedFunction
+        {
+            get { return _selectedFunction; }
+            set
+            {
+                Set(ref _selectedFunction, value);
+            }
+        }
 
         public MainWindowViewModel()
         {
@@ -40,4 +48,5 @@ namespace TestTaskNeoStack.ViewModels
             { A = 0, B = 0, C = 10000 });
         }
     }
+
 }
