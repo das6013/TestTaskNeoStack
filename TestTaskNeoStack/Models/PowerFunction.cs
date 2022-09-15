@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using TestTaskNeoStack.ViewModels;
-using System.Collections.Specialized;
-using System.Collections.ObjectModel;
 using Simplified;
 
 namespace TestTaskNeoStack.Models
@@ -77,7 +77,9 @@ namespace TestTaskNeoStack.Models
 
             CalculatedFunctions.CollectionChanged += OnRowsChanged;
         }
+
         private readonly Func<double, double, double, double, double, double> function;
+
         private double Calculate(double x, double y)
         {
             return function(A, B, C, x, y);
@@ -85,6 +87,8 @@ namespace TestTaskNeoStack.Models
 
 
         private RelayCommand _removeRow;
+
+        /// <summary>Команда удаления строки.</summary>
         public RelayCommand RemoveRow =>
             _removeRow ?? (_removeRow = new RelayCommand
         (
@@ -93,6 +97,8 @@ namespace TestTaskNeoStack.Models
         ));
 
         private RelayCommand _addRow;
+
+        /// <summary>Команда добавления строки.</summary>
         public RelayCommand AddRow =>
             _addRow ?? (_addRow = new RelayCommand
         (
@@ -103,6 +109,7 @@ namespace TestTaskNeoStack.Models
         {
             base.OnPropertyChanged(propertyName, oldValue, newValue);
 
+            // Пересчёт значения Функции если изменилось значение A,B,C
             if (propertyName == nameof(A) || propertyName == nameof(B) || propertyName == nameof(C))
                 foreach (PowerFunctionRow row in CalculatedFunctions)
                 {

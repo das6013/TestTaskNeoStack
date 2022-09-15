@@ -77,10 +77,6 @@
       <Project>{3a9e1113-2453-4f89-afc2-f730690e820c}</Project>
       <Name>BindingToNumeric</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{695994e1-2f7b-49b5-9e3d-4e2a41e41c9a}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TestTaskNeoStack\TestTaskNeoStack.csproj">
       <Project>{C793DF62-9EA3-4B4A-82F3-299C6C2ADF0B}</Project>
       <Name>TestTaskNeoStack</Name>

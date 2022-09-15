@@ -58,16 +58,24 @@ namespace Simplified
                 dispatcher.BeginInvoke((Action)Invalidate);
         }
         private void Invalidate()
-            => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        { 
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
 
         /// <summary>Вызов метода, возвращающего состояние команды.</summary>
         /// <param name="parameter">Параметр команды.</param>
         /// <returns><see langword="true"/> - если выполнение команды разрешено.</returns>
-        public bool CanExecute(object parameter) => canExecute?.Invoke(parameter) ?? true;
+        public bool CanExecute(object parameter)
+        {
+            return canExecute?.Invoke(parameter) ?? true;
+        }
 
         /// <summary>Вызов выполняющего метода команды.</summary>
         /// <param name="parameter">Параметр команды.</param>
-        public void Execute(object parameter) => execute?.Invoke(parameter);
+        public void Execute(object parameter)
+        {
+            execute?.Invoke(parameter);
+        }
     }
     #endregion
 }

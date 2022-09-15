@@ -41,10 +41,7 @@ namespace TestTaskNeoStack.ViewModels
         {
             this.function = function ?? throw new ArgumentNullException(nameof(function));
             F = function?.Function(X, Y);
-        }
-
-
-     
+        }     
 
         protected override void OnPropertyChanged(string propertyName, object oldValue, object newValue)
         {

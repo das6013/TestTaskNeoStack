@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Convert\BaseInpc.cs" />
+    <Compile Include="Convert\RelayCommand.cs" />
     <Compile Include="ViewModels\MainWindowViewModel .cs" />
     <Compile Include="ViewModels\PowerFunctionRow.cs" />
     <Page Include="MainWindow.xaml">
@@ -96,12 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{695994e1-2f7b-49b5-9e3d-4e2a41e41c9a}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

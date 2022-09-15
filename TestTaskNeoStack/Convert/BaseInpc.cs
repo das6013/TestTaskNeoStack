@@ -4,7 +4,8 @@ using System.Runtime.CompilerServices;
 
 namespace Simplified
 {
-    /// <summary>Базовый класс с реализацией <see cref="INotifyPropertyChanged"/>.</summary>
+    /// <summary>Базовый класс с реализацией <see cref="INotifyPropertyChanged"/>.
+    /// Источник: https://www.cyberforum.ru/wpf-silverlight/thread2390714-page4.html#post13535649 </summary>
     public abstract class BaseInpc : INotifyPropertyChanged
     {
         /// <inheritdoc cref="INotifyPropertyChanged"/>

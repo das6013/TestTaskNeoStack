@@ -59,7 +59,7 @@
                       MaxHeight="145"
                       ScrollViewer.CanContentScroll="True"
                       ScrollViewer.VerticalScrollBarVisibility="Auto"
-                      ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False">
+                      ScrollViewer.HorizontalScrollBarVisibility="Visible" AutoGenerateColumns="False" Height="145">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="F(X, Y)" Width="60" Binding="{Binding F, Mode=OneWay}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="X" Width="60" Binding="{Binding X, UpdateSourceTrigger=PropertyChanged}" />
