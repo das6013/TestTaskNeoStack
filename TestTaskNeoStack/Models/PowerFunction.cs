@@ -92,7 +92,7 @@ namespace TestTaskNeoStack.Models
         public RelayCommand RemoveRow =>
             _removeRow ?? (_removeRow = new RelayCommand
         (
-             () => { if (CalculatedFunctions.Count > 0)
+             () => { if (CalculatedFunctions.Count > 1)
                      CalculatedFunctions.RemoveAt(CalculatedFunctions.Count - 1); }
         ));
 
