@@ -12,14 +12,6 @@ namespace TestTaskNeoStack
         {
             InitializeComponent();
         }
-
-        private void TextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
-        {
-            int val;
-            if (!Int32.TryParse(e.Text, out val) && e.Text != "-")
-            {
-                e.Handled = true; // отклоняем ввод
-            }
-        }
     }
+
 }
