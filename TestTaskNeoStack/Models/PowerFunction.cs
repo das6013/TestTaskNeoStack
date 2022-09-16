@@ -15,7 +15,17 @@ namespace TestTaskNeoStack.Models
         private double _b;
         private double _c;
         /// <summary>Названия Функции.</summary>
-        public string FunctionName { get => _nameSelectedFunction; private set => _nameSelectedFunction = value; }
+        public string FunctionName 
+        {
+            get 
+            { 
+                return _nameSelectedFunction; 
+            }
+            private set 
+            { 
+                _nameSelectedFunction = value;
+            }
+        }
 
         /// <summary>Делегат Функции.</summary>
         public Func<double, double, double> Function { get; }
@@ -74,7 +84,6 @@ namespace TestTaskNeoStack.Models
             Coefficients = arguments.ToList().AsReadOnly();
             this.function = function ?? throw new ArgumentNullException(nameof(function));
             Function = Calculate;
-
             CalculatedFunctions.CollectionChanged += OnRowsChanged;
         }
 

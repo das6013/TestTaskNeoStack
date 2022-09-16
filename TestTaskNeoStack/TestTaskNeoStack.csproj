@@ -55,8 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Convert\BaseInpc.cs" />
-    <Compile Include="Convert\RelayCommand.cs" />
+    <Compile Include="Converter\BaseInpc.cs" />
+    <Compile Include="Converter\NumericDataGridTextColumn.cs" />
+    <Compile Include="Converter\NumericTextBox.cs" />
+    <Compile Include="Converter\RelayCommand.cs" />
     <Compile Include="ViewModels\MainWindowViewModel .cs" />
     <Compile Include="ViewModels\PowerFunctionRow.cs" />
     <Page Include="MainWindow.xaml">
@@ -98,12 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BindingToNumber\BindingToNumeric.csproj">
-      <Project>{3a9e1113-2453-4f89-afc2-f730690e820c}</Project>
-      <Name>BindingToNumeric</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

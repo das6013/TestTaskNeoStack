@@ -73,10 +73,6 @@
     <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BindingToNumber\BindingToNumeric.csproj">
-      <Project>{3a9e1113-2453-4f89-afc2-f730690e820c}</Project>
-      <Name>BindingToNumeric</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TestTaskNeoStack\TestTaskNeoStack.csproj">
       <Project>{C793DF62-9EA3-4B4A-82F3-299C6C2ADF0B}</Project>
       <Name>TestTaskNeoStack</Name>

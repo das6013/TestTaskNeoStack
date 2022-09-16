@@ -11,6 +11,20 @@ namespace TestTaskNeoStack.ViewModels
         private double _y;
         private double? _f;
 
+        private bool _isNewFunction;
+        /// <summary>Режим изменения Функции.</summary>
+        public bool IsNewFunction
+        {
+            get
+            {
+                return _isNewFunction;
+            }
+            set
+            {
+                Set(ref _isNewFunction, value);
+            }
+        }
+
         /// <summary>Значение X.</summary>
         public double X 
         {
@@ -49,7 +63,9 @@ namespace TestTaskNeoStack.ViewModels
 
             // Пересчёт значения Функции если изменилось значение X или Y.
             if (propertyName == nameof(X) || propertyName == nameof(Y))
+            { 
                 F = function?.Function(X, Y);
+            }
         }
     }
 }

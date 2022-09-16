@@ -22,7 +22,7 @@ namespace TestTaskNeoStack.ViewModels
             {
                 Set(ref _selectedFunction, value);
             }
-        }
+        }     
 
         public MainWindowViewModel()
         {
@@ -46,7 +46,8 @@ namespace TestTaskNeoStack.ViewModels
                 new List<double> { 10000, 20000, 30000, 40000, 50000 },
                 (a, b, c, x, y) => a * Math.Pow(x, 5) + b * Math.Pow(y, 4) + c)
             { A = 0, B = 0, C = 10000 });
-        }
+            _selectedFunction = Functions[0];
+        }        
     }
 
 }

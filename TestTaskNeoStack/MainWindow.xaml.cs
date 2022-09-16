@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 
 namespace TestTaskNeoStack
 {
@@ -13,5 +12,4 @@ namespace TestTaskNeoStack
             InitializeComponent();
         }
     }
-
 }
