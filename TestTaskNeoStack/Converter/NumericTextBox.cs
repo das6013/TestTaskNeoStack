@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace TestTaskNeoStack.Converter
 {
     class NumericTextBox:TextBox
     {
-        void OnPreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        protected override void OnPreviewTextInput(TextCompositionEventArgs e)
         {
             try
             {
@@ -13,9 +14,9 @@ namespace TestTaskNeoStack.Converter
             }
             catch
             {
-
                 e.Handled = true;
             }
         }
+
     }
 }
